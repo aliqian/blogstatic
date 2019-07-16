@@ -1,5 +1,31 @@
 .container {
   width: 100vw;
   height: 100vh;
-  background: cadetblue;
+  background: linear-gradient(to left top, #d7f0c9, white);
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  grid-template-rows: 1fr 4fr 1fr;
+  grid-column-gap: 2rem;
+}
+
+.grid-item {
+  border: 1px solid lightgreen;
+}
+
+.item-one {
+  background: lightcoral;
+  grid-row: 2 / 4;
+  grid-column: 1 / 2;
+}
+
+.item-two {
+  background: lightcyan;
+}
+
+.item-three {
+  background: lightgoldenrodyellow;
+}
+
+.item-four {
+  background: lightsalmon;
 }
