@@ -3,31 +3,36 @@ import styled from "@emotion/styled"
 import SEO from "../components/seo"
 
 const Container = styled.div`
+  background: #1e91d6;
   width: 100vw;
   height: 100vh;
   padding: 3rem 8rem;
   display: grid;
   grid-template-columns: repeat(4, 1fr);
-  grid-template-rows: 1fr 4fr 1fr;
-  grid-column-gap: 2rem;
+  grid-template-rows: 1fr 4fr 1fr 0.5fr;
+  grid-column-gap: 4rem;
 
   [class^="item"] {
-    color: #333;
-    border: 1rem outset;
-    /* box-shadow: 0px 0px 2px rgba(0, 0, 0, 0.3); */
-    border-radius: 1.6rem;
+    color: #1e91d6;
+    background: #0072bb22;
+    border-radius: 0.5rem;
+    border: 0 solid #0072bb;
     cursor: pointer;
-    transition: all 0.2s;
-  }
-  [class^="item"]:nth-child(even) {
-    border-style: solid;
+    transition: all 0.1s;
+    box-shadow: 0 0 2rem rgba(0, 0, 0, 0.1);
   }
   [class^="item"]:hover {
-    box-shadow: 1px 1px 18px rgba(0, 0, 0, 0.3);
+    box-shadow: 1px 1px 2px rgba(0, 0, 0, 0.2);
     border-width: 0;
+    border-radius: 0.8rem;
+    border-width: 0.1rem;
+    /* border-right-color: #fff4;
+    border-bottom-color: #fff2;
+    border-left-color: #0072bb99; */
   }
   [class^="item"]:active {
-    box-shadow: 1px 1px 0px rgba(0, 0, 0, 0.1);
+    background: #0072bb66;
+    border-width: 0.3rem;
   }
 
   .item-one {
