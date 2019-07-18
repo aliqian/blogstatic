@@ -25,12 +25,15 @@ class BlogIndex extends React.Component {
           </section>
           <section className={`${styles.sectionCard} ${styles.itemTwo}`}>
             <h2 className={styles.bgTitle}>休闲一刻</h2>
+            <h2 className={styles.title}>Fun</h2>
           </section>
           <section className={`${styles.sectionCard} ${styles.itemThree}`}>
             <h2 className={styles.bgTitle}>天马行空</h2>
+            <h2 className={styles.title}>Idea</h2>
           </section>
           <section className={`${styles.sectionCard} ${styles.itemFour}`}>
             <h2 className={styles.bgTitle}>敬请期待</h2>
+            <h2 className={styles.title}>...</h2>
           </section>
         </div>
         <Footer />
