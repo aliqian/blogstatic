@@ -1,45 +1,75 @@
 import React from "react"
-import { css } from "@emotion/core"
+import { Link, graphql } from "gatsby"
+
+import Bio from "../components/bio"
+import Layout from "../components/layout"
 import SEO from "../components/seo"
-import Footer from "../components/footer"
-import styles from "../styles/index.module.css"
+import { rhythm } from "../utils/typography"
 
 class BlogIndex extends React.Component {
   render() {
+    const { data } = this.props
+    const siteTitle = data.site.siteMetadata.title
+    const posts = data.allMarkdownRemark.edges
+
     return (
-      <div
-        css={css`
-          position: relative;
-        `}
-      >
-        <div className={styles.container}>
-          <SEO title="Home" />
-          <section className={`${styles.sectionCard} ${styles.itemOne}`}>
-            <h2 className={styles.bgTitle}>百川入海</h2>
-            <h2 className={styles.title}>Tech</h2>
-            <p className={styles.description}>
-              I often hear people say that teaching is the best way to learn.
-              "Teach" is a big word for me, just be here to share things I
-              learned. If you find something useful here, it's my pleasure.
-            </p>
-          </section>
-          <section className={`${styles.sectionCard} ${styles.itemTwo}`}>
-            <h2 className={styles.bgTitle}>休闲一刻</h2>
-            <h2 className={styles.title}>Fun</h2>
-          </section>
-          <section className={`${styles.sectionCard} ${styles.itemThree}`}>
-            <h2 className={styles.bgTitle}>天马行空</h2>
-            <h2 className={styles.title}>Idea</h2>
-          </section>
-          <section className={`${styles.sectionCard} ${styles.itemFour}`}>
-            <h2 className={styles.bgTitle}>敬请期待</h2>
-            <h2 className={styles.title}>...</h2>
-          </section>
-        </div>
-        <Footer />
-      </div>
+      <Layout location={this.props.location} title={siteTitle}>
+        <SEO title="All posts" />
+        <Bio />
+        {posts.map(({ node }) => {
+          const title = node.frontmatter.title || node.fields.slug
+          return (
+            <div key={node.fields.slug}>
+              <h3
+                style={{
+                  marginBottom: rhythm(1 / 4),
+                }}
+              >
+                <Link style={{ boxShadow: `none` }} to={node.fields.slug}>
+                  {title}
+                </Link>
+              </h3>
+              <small>{node.frontmatter.date}</small>
+              <p
+                dangerouslySetInnerHTML={{
+                  __html: node.frontmatter.description || node.excerpt,
+                }}
+              />
+            </div>
+          )
+        })}
+      </Layout>
     )
   }
 }
 
 export default BlogIndex
+
+export const pageQuery = graphql`
+  query blogPageQuery($skip: Int, $limit: Int) {
+    site {
+      siteMetadata {
+        title
+      }
+    }
+    allMarkdownRemark(
+      sort: { fields: [frontmatter___order], order: ASC }
+      skip: $skip
+      limit: $limit
+    ) {
+      edges {
+        node {
+          excerpt
+          fields {
+            slug
+          }
+          frontmatter {
+            date(formatString: "MMMM DD, YYYY")
+            title
+            description
+          }
+        }
+      }
+    }
+  }
+`

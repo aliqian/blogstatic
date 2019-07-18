@@ -48,6 +48,24 @@ exports.createPages = ({ graphql, actions }) => {
       })
     })
 
+    // Create blog post list pages with pagination
+    const postsPerPage = 2
+    const numPages = Math.ceil(posts.length / postsPerPage)
+
+    Array.from({ length: numPages + 1 }).forEach((_, i) => {
+      // To create extra "/posts" page, use "numPages + 1"
+      createPage({
+        path: i === 0 ? `/posts` : `/posts/${i}`,
+        component: path.resolve("./src/pages/index.js"),
+        context: {
+          limit: postsPerPage,
+          skip: (i && i - 1) * postsPerPage, // If i > 0, use (i - 1)
+          numPages,
+          currentPage: i || i + 1,
+        },
+      })
+    })
+
     return null
   })
 }
