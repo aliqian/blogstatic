@@ -5,6 +5,7 @@ exports.createPages = ({ graphql, actions }) => {
   const { createPage } = actions
 
   const blogPost = path.resolve(`./src/templates/blog-post.js`)
+  const blogPostList = path.resolve(`./src/templates/blog-posts.js`)
   return graphql(
     `
       {
@@ -56,7 +57,7 @@ exports.createPages = ({ graphql, actions }) => {
       // To create extra "/posts" page, use "numPages + 1"
       createPage({
         path: i === 0 ? `/posts` : `/posts/${i}`,
-        component: path.resolve("./src/pages/index.js"),
+        component: blogPostList,
         context: {
           limit: postsPerPage,
           skip: (i && i - 1) * postsPerPage, // If i > 0, use (i - 1)

@@ -2,9 +2,10 @@
 title: My Second Post!
 date: "2015-05-06T23:46:37.121Z"
 order: "00020002"
+description: "<strong style='color: red;'>This should be strong.</strong> Anything else"
 ---
 
-Wow! I love blogging so much already.
+1234567891234567890-Wow! I love blogging so much already.
 
 Did you know that "despite its name, salted duck eggs can also be made from
 chicken eggs, though the taste and texture will be somewhat different, and the
