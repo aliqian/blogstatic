@@ -30,7 +30,7 @@ const SideBar = ({ setTheme: _setTheme }) => {
   `)
 
   const [theme, setTheme] = useState(
-    localStorage.getItem("theme-color") || white
+    (window && window.localStorage.getItem("theme-color")) || white
   )
   const ColorSquare = ({ color }) => (
     <div
@@ -47,7 +47,7 @@ const SideBar = ({ setTheme: _setTheme }) => {
       onClick={() => {
         setTheme(color)
         _setTheme && _setTheme(color)
-        localStorage.setItem("theme-color", color)
+        window && window.localStorage.setItem("theme-color", color)
       }}
     ></div>
   )
