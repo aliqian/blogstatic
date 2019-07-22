@@ -1,21 +1,22 @@
 ---
 title: Hello World
-date: "2015-05-01T22:12:03.284Z"
+date: "2019-07-22T03:01:48.953Z"
+description: "The beginning of all, with no creative title. Finally I build my own blog site. Using another language is a way to express the embarrassment."
 ---
 
-This is my first post on my new fake blog! How exciting!
+Hello. This is the beginning. How exciting. I've always wanted to start a blog site. I know, procrastination is bad.
 
-I'm sure I'll write a lot more interesting things in the future.
+After slight struggle, I decide to focus on writing down what I learned each day, and trying to explain everything I thought I knew.
 
-Oh, and here's a great quote from this Wikipedia on
-[salted duck eggs](http://en.wikipedia.org/wiki/Salted_duck_egg).
+For example today I learned a concept called Feynman Technique, named after the Nobel Prize-winning physicist Richard Feynman. It's a method for learning. The basic idea is to explain the concept you want to learn in plain, simple language.
 
-> A salted duck egg is a Chinese preserved food product made by soaking duck
-> eggs in brine, or packing each egg in damp, salted charcoal. In Asian
-> supermarkets, these eggs are sometimes sold covered in a thick layer of salted
-> charcoal paste. The eggs may also be sold with the salted paste removed,
-> wrapped in plastic, and vacuum packed. From the salt curing process, the
-> salted duck eggs have a briny aroma, a gelatin-like egg white and a
-> firm-textured, round yolk that is bright orange-red in color.
+1. Pick a concept. Write it down.
+2. Explain it as much as you can.
+3. Once get stuck, go to your material, check it out.
+4. Check your explanation, replace any complex terms with simpler ones. Make sure someone without any background can understand.
 
-![Chinese Salty Egg](./salty_egg.jpg)
+It a good technique. But I wonder if it help with learning language. Because I don't think it's something you can "explain". When describe the 4 steps of using Feynman technique, there is something I want to say, but I don't know how to express it in English.
+
+Since I'm not a master in English writing, I'll only use it once in a while, for practice purpose.
+
+No more gibberish. See you soon.
