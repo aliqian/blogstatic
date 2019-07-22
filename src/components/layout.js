@@ -13,25 +13,38 @@ const Layout = ({ children }) => {
     <div
       css={css`
         height: 100vh;
-        overflow: auto;
+        overflow-y: scroll;
         display: flex;
-        justify-content: center;
         background: ${theme};
       `}
     >
-      <SideBar setTheme={t => setTheme(t)} />
       <div
-        style={{
-          maxWidth: rhythm(24),
-          padding: `${rhythm(1.5)} ${rhythm(3 / 4)}`,
-        }}
+        css={css`
+          flex-grow: 3;
+          display: flex;
+          justify-content: flex-end;
+        `}
       >
-        <main>{children}</main>
-        <footer>
-          © {new Date().getFullYear()}, Built with
-          {` `}
-          Code
-        </footer>
+        <SideBar setTheme={t => setTheme(t)} />
+      </div>
+      <div
+        css={css`
+          flex-grow: 4;
+        `}
+      >
+        <div
+          css={css`
+            max-width: ${rhythm(24)};
+            padding: ${rhythm(1.5)} ${rhythm(3 / 4)};
+          `}
+        >
+          <main>{children}</main>
+          <footer>
+            © {new Date().getFullYear()}, Built with
+            {` `}
+            Code
+          </footer>
+        </div>
       </div>
     </div>
   )

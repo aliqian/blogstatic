@@ -42,6 +42,7 @@ const SideBar = ({ setTheme: _setTheme }) => {
         border-color: ${color === theme ? "black" : "lightgray"};
         border-radius: 0.2rem;
         margin: 0 0.5rem;
+        cursor: pointer;
       `}
       onClick={() => {
         setTheme(color)
@@ -67,6 +68,7 @@ const SideBar = ({ setTheme: _setTheme }) => {
           border: 1px solid ${theme};
           border-radius: 0.5rem;
           box-shadow: 0 0 5px rgba(0, 0, 0, 0.1);
+          position: relative;
         `}
       >
         <Image
@@ -86,6 +88,9 @@ const SideBar = ({ setTheme: _setTheme }) => {
             display: block;
             width: 100%;
             height: 100%;
+            position: absolute;
+            left: 0;
+            top: 0;
             background: transparent;
             text-indent: -999rem;
             box-shadow: none;
