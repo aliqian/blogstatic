@@ -6,7 +6,9 @@ import SideBar from "./sidebar"
 
 const Layout = ({ children }) => {
   const [theme, setTheme] = useState(
-    (window && window.localStorage.getItem("theme-color")) || "white"
+    (typeof window !== "undefined" &&
+      window.localStorage.getItem("theme-color")) ||
+      "white"
   )
 
   return (
