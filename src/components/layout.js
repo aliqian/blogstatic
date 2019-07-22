@@ -4,7 +4,7 @@ import { css } from "@emotion/core"
 import { rhythm } from "../utils/typography"
 import SideBar from "./sidebar"
 
-const Layout = ({ children }) => {
+const Layout = ({ children, location }) => {
   const [theme, setTheme] = useState(
     (typeof window !== "undefined" &&
       window.localStorage.getItem("theme-color")) ||
@@ -27,7 +27,7 @@ const Layout = ({ children }) => {
           justify-content: flex-end;
         `}
       >
-        <SideBar setTheme={t => setTheme(t)} />
+        <SideBar setTheme={t => setTheme(t)} location={location} />
       </div>
       <div
         css={css`
@@ -42,7 +42,7 @@ const Layout = ({ children }) => {
         >
           <main>{children}</main>
           <footer>
-            © {new Date().getFullYear()}, Built with
+            &copy; {new Date().getFullYear()}, Built with
             {` `}
             Code
           </footer>

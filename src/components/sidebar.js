@@ -8,7 +8,8 @@ import { useStaticQuery, graphql } from "gatsby"
 const green = "#dbeedd"
 const white = "#ffffff"
 
-const SideBar = ({ setTheme: _setTheme }) => {
+const SideBar = ({ location, setTheme: _setTheme }) => {
+  console.log("变量输出 __PATH_PREFIX__: ", __PATH_PREFIX__)
   const data = useStaticQuery(graphql`
     query SideQuery {
       logo: file(absolutePath: { regex: "/logo.png/" }) {
@@ -42,7 +43,7 @@ const SideBar = ({ setTheme: _setTheme }) => {
         width: 1.5rem;
         border: 0.2rem solid;
         border-color: ${color === theme ? "black" : "lightgray"};
-        border-radius: 0.2rem;
+        border-radius: 100%;
         margin: 0 0.5rem;
         cursor: pointer;
       `}
@@ -69,9 +70,10 @@ const SideBar = ({ setTheme: _setTheme }) => {
           width: 10rem;
           height: 10rem;
           border: 1px solid ${theme};
-          border-radius: 0.5rem;
-          box-shadow: 0 0 5px rgba(0, 0, 0, 0.1);
+          border-radius: 100%;
+          box-shadow: 0 0 0.75rem rgba(0, 0, 0, 0.1);
           position: relative;
+          overflow: hidden;
         `}
       >
         <Image
@@ -85,22 +87,32 @@ const SideBar = ({ setTheme: _setTheme }) => {
             height: "100%",
           }}
         />
-        <Link
-          to="/"
-          css={css`
-            display: block;
-            width: 100%;
-            height: 100%;
-            position: absolute;
-            left: 0;
-            top: 0;
-            background: transparent;
-            text-indent: -999rem;
-            box-shadow: none;
-          `}
-        >
-          HOME
-        </Link>
+        {location.pathname !== `${__PATH_PREFIX__}/` && (
+          <Link
+            to="/"
+            css={css`
+              display: flex;
+              width: 100%;
+              height: 100%;
+              position: absolute;
+              left: 0;
+              top: 0;
+              background: #fffd;
+              box-shadow: none;
+              font-size: 2rem;
+              justify-content: center;
+              align-items: center;
+              opacity: 0;
+              transition: opacity 0.2s;
+
+              :hover {
+                opacity: 1;
+              }
+            `}
+          >
+            &larr; HOME
+          </Link>
+        )}
       </div>
       <div
         css={css`
