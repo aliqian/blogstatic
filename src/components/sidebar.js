@@ -62,15 +62,15 @@ const SideBar = ({ location, setTheme: _setTheme }) => {
         align-items: center;
         flex-flow: column nowrap;
         padding: ${rhythm(5)} ${rhythm(2)} 0;
+        width: ${rhythm(11)};
       `}
     >
       <div
         css={css`
           width: 10rem;
           height: 10rem;
-          border: 1px solid ${theme};
+          border: 1px solid #fff;
           border-radius: 100%;
-          box-shadow: 0 0 0.75rem rgba(0, 0, 0, 0.1);
           position: relative;
           overflow: hidden;
         `}
@@ -123,6 +123,16 @@ const SideBar = ({ location, setTheme: _setTheme }) => {
         <ColorSquare color={white} />
         <ColorSquare color={green} />
       </div>
+      <p
+        css={css`
+          margin-top: 1rem;
+          font-size: 0.85rem;
+          font-family: "华文中宋", "Microsofe YaHei", sans-serif;
+          color: gray;
+        `}
+      >
+        作者很懒，什么都没留下
+      </p>
     </div>
   )
 }

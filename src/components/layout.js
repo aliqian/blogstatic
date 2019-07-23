@@ -14,8 +14,7 @@ const Layout = ({ children, location }) => {
   return (
     <div
       css={css`
-        height: 100vh;
-        overflow-y: scroll;
+        min-height: 100vh;
         display: flex;
         background: ${theme};
       `}
@@ -25,6 +24,7 @@ const Layout = ({ children, location }) => {
           flex-grow: 3;
           display: flex;
           justify-content: flex-end;
+          background: #f9f9f9;
         `}
       >
         <SideBar setTheme={t => setTheme(t)} location={location} />
@@ -32,12 +32,15 @@ const Layout = ({ children, location }) => {
       <div
         css={css`
           flex-grow: 4;
+          padding-left: ${rhythm(1)};
         `}
       >
         <div
           css={css`
             max-width: ${rhythm(24)};
             padding: ${rhythm(1.5)} ${rhythm(3 / 4)};
+            overflow: auto;
+            height: 100%;
           `}
         >
           <main>{children}</main>
