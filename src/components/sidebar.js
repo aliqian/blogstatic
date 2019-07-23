@@ -9,7 +9,6 @@ const green = "#dbeedd"
 const white = "#ffffff"
 
 const SideBar = ({ location, setTheme: _setTheme }) => {
-  console.log("变量输出 __PATH_PREFIX__: ", __PATH_PREFIX__)
   const data = useStaticQuery(graphql`
     query SideQuery {
       logo: file(absolutePath: { regex: "/logo.png/" }) {
