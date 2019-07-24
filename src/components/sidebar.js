@@ -1,5 +1,6 @@
 import React, { useState } from "react"
 import { css } from "@emotion/core"
+import styled from "@emotion/styled"
 import { rhythm } from "../utils/typography"
 import { Link } from "gatsby"
 import Image from "gatsby-image"
@@ -7,6 +8,12 @@ import { useStaticQuery, graphql } from "gatsby"
 
 const green = "#dbeedd"
 const white = "#ffffff"
+const bg_square_border_width = "0.1rem"
+
+const BgSquare = styled.div`
+  background: #bcdf;
+  border: ${bg_square_border_width} solid #fff;
+`
 
 const SideBar = ({ location, setTheme: _setTheme }) => {
   const data = useStaticQuery(graphql`
@@ -58,81 +65,122 @@ const SideBar = ({ location, setTheme: _setTheme }) => {
   return (
     <div
       css={css`
+        width: 100%;
+        height: 100%;
         display: flex;
-        align-items: center;
-        flex-flow: column nowrap;
-        padding: ${rhythm(5)} ${rhythm(2)} 0;
-        width: ${rhythm(11)};
+        justify-content: flex-end;
+        background: #fff;
+        position: relative;
+        z-index: 1;
       `}
     >
       <div
         css={css`
-          width: 10rem;
-          height: 10rem;
-          border: 1px solid #fff;
-          border-radius: 100%;
-          position: relative;
-          overflow: hidden;
+          position: absolute;
+          z-index: -1;
+          left: 0;
+          top: 0;
+          right: 0;
+          bottom: 0;
+          display: grid;
+          padding: 0.05rem 0 0 0.05rem;
+          grid-template-columns: repeat(auto-fill, 1rem);
+          grid-template-rows: repeat(auto-fill, 1rem);
+          background-size: 1rem 1rem;
+          background-image: linear-gradient(
+              to right,
+              #fafafa ${bg_square_border_width},
+              transparent ${bg_square_border_width}
+            ),
+            linear-gradient(
+              to bottom,
+              #fafafa ${bg_square_border_width},
+              transparent ${bg_square_border_width}
+            );
         `}
       >
-        <Image
-          fluid={data.logo.childImageSharp.fluid}
-          alt="BIG LOGO"
-          style={{
-            marginRight: rhythm(1 / 2),
-            marginBottom: 0,
-            borderRadius: `100%`,
-            width: "100%",
-            height: "100%",
-          }}
-        />
-        {location.pathname !== `${__PATH_PREFIX__}/` && (
-          <Link
-            to="/"
-            css={css`
-              display: flex;
-              width: 100%;
-              height: 100%;
-              position: absolute;
-              left: 0;
-              top: 0;
-              background: #fffd;
-              box-shadow: none;
-              font-size: 2rem;
-              justify-content: center;
-              align-items: center;
-              opacity: 0;
-              transition: opacity 0.2s;
-
-              :hover {
-                opacity: 1;
-              }
-            `}
-          >
-            &larr; HOME
-          </Link>
-        )}
+        {Array.from({ length: 2 }).map(() => (
+          <BgSquare />
+        ))}
       </div>
       <div
         css={css`
           display: flex;
-          justify-content: center;
-          margin-top: ${rhythm(1)};
+          align-items: center;
+          flex-flow: column nowrap;
+          padding: ${rhythm(5)} ${rhythm(2)} 0;
+          width: ${rhythm(11)};
         `}
       >
-        <ColorSquare color={white} />
-        <ColorSquare color={green} />
+        <div
+          css={css`
+            width: 10rem;
+            height: 10rem;
+            border: 1px solid #fff;
+            border-radius: 100%;
+            position: relative;
+            overflow: hidden;
+          `}
+        >
+          <Image
+            fluid={data.logo.childImageSharp.fluid}
+            alt="BIG LOGO"
+            style={{
+              marginRight: rhythm(1 / 2),
+              marginBottom: 0,
+              borderRadius: `100%`,
+              width: "100%",
+              height: "100%",
+            }}
+          />
+          {location.pathname !== `${__PATH_PREFIX__}/` && (
+            <Link
+              to="/"
+              css={css`
+                display: flex;
+                width: 100%;
+                height: 100%;
+                position: absolute;
+                left: 0;
+                top: 0;
+                background: #fffd;
+                box-shadow: none;
+                font-size: 2rem;
+                justify-content: center;
+                align-items: center;
+                opacity: 0;
+                transition: opacity 0.2s;
+
+                :hover {
+                  opacity: 1;
+                }
+              `}
+            >
+              &larr; HOME
+            </Link>
+          )}
+        </div>
+        <div
+          css={css`
+            display: flex;
+            justify-content: center;
+            margin-top: ${rhythm(1)};
+          `}
+        >
+          <ColorSquare color={white} />
+          <ColorSquare color={green} />
+        </div>
+        <p
+          css={css`
+            margin-top: 1rem;
+            font-size: 0.85rem;
+            font-family: "华文中宋", "Microsofe YaHei", sans-serif;
+            color: gray;
+          `}
+        >
+          作者很懒，什么都没留下
+        </p>
       </div>
-      <p
-        css={css`
-          margin-top: 1rem;
-          font-size: 0.85rem;
-          font-family: "华文中宋", "Microsofe YaHei", sans-serif;
-          color: gray;
-        `}
-      >
-        作者很懒，什么都没留下
-      </p>
     </div>
   )
 }

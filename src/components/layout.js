@@ -22,9 +22,6 @@ const Layout = ({ children, location }) => {
       <div
         css={css`
           flex-grow: 3;
-          display: flex;
-          justify-content: flex-end;
-          background: #f9f9f9;
         `}
       >
         <SideBar setTheme={t => setTheme(t)} location={location} />
