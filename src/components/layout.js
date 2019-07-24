@@ -30,6 +30,8 @@ const Layout = ({ children, location }) => {
         css={css`
           flex-grow: 4;
           padding-left: ${rhythm(1)};
+          box-shadow: 0px 0 5px rgba(0, 0, 0, 0.1);
+          z-index: 2;
         `}
       >
         <div

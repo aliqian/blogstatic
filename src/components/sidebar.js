@@ -99,8 +99,8 @@ const SideBar = ({ location, setTheme: _setTheme }) => {
             );
         `}
       >
-        {Array.from({ length: 2 }).map(() => (
-          <BgSquare />
+        {Array.from({ length: 2 }).map((_, index) => (
+          <BgSquare key={index} />
         ))}
       </div>
       <div
@@ -120,6 +120,11 @@ const SideBar = ({ location, setTheme: _setTheme }) => {
             border-radius: 100%;
             position: relative;
             overflow: hidden;
+            box-shadow: 0 0 1rem rgba(0, 0, 0, 0.1);
+            transition: box-shadow 0.2s;
+            :active {
+              box-shadow: 0 0 0.25rem rgba(0, 0, 0, 0.1);
+            }
           `}
         >
           <Image
