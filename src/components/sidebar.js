@@ -108,7 +108,7 @@ const SideBar = ({ location, setTheme: _setTheme }) => {
           display: flex;
           align-items: center;
           flex-flow: column nowrap;
-          padding: ${rhythm(5)} ${rhythm(2)} 0;
+          padding-top: ${rhythm(5)};
           width: ${rhythm(11)};
         `}
       >
@@ -116,15 +116,10 @@ const SideBar = ({ location, setTheme: _setTheme }) => {
           css={css`
             width: 10rem;
             height: 10rem;
-            border: 1px solid #fff;
+            border: 1px solid lightgray;
             border-radius: 100%;
             position: relative;
             overflow: hidden;
-            box-shadow: 0 0 1rem rgba(0, 0, 0, 0.1);
-            transition: box-shadow 0.2s;
-            :active {
-              box-shadow: 0 0 0.25rem rgba(0, 0, 0, 0.1);
-            }
           `}
         >
           <Image
@@ -179,11 +174,11 @@ const SideBar = ({ location, setTheme: _setTheme }) => {
           css={css`
             margin-top: 1rem;
             font-size: 0.85rem;
-            font-family: "华文中宋", "Microsofe YaHei", sans-serif;
+            font-family: "Courier New", Courier, monospace;
             color: gray;
           `}
         >
-          作者很懒，什么都没留下
+          Know a little byte of programming.
         </p>
       </div>
     </div>
