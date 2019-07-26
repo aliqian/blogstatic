@@ -28,13 +28,16 @@ const SideBar = ({ location, setTheme: _setTheme }) => {
       site {
         siteMetadata {
           author
-          social {
-            twitter
+          routes {
+            name
+            path
           }
         }
       }
     }
   `)
+
+  const { siteMetadata } = data.site
 
   const [theme, setTheme] = useState(
     (typeof window !== "undefined" &&
@@ -170,12 +173,26 @@ const SideBar = ({ location, setTheme: _setTheme }) => {
           <ColorSquare color={white} />
           <ColorSquare color={green} />
         </div>
+        <ul
+          css={css`
+            list-style: none;
+            margin-top: 1rem;
+          `}
+        >
+          {siteMetadata.routes.map(route => (
+            <li>
+              <Link activeStyle={{ color: "black" }}>{route.name}</Link>
+            </li>
+          ))}
+        </ul>
         <p
           css={css`
-            margin-top: 1rem;
             font-size: 0.85rem;
             font-family: "Courier New", Courier, monospace;
             color: gray;
+            position: absolute;
+            bottom: 1rem;
+            left: 1rem;
           `}
         >
           Know a little byte of programming.

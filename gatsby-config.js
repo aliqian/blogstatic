@@ -5,6 +5,7 @@ module.exports = {
     description: `Personal blog.`,
     siteUrl: `https://liqian.tech/`,
     social: {},
+    routes: [{ name: "Home", path: "/" }],
   },
   plugins: [
     {
