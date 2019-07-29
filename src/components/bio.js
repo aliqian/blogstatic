@@ -20,7 +20,7 @@ const Bio = () => {
     }
   `)
 
-  const { author, social } = data.site.siteMetadata
+  const { author } = data.site.siteMetadata
   return (
     <div
       style={{
@@ -34,6 +34,8 @@ const Bio = () => {
         style={{
           marginBottom: 0,
           minWidth: 56,
+          borderRadius: "100%",
+          boxShadow: "0 0 5px rgba(0, 0, 0, 0.1)",
         }}
         imgStyle={{
           borderRadius: `50%`,

@@ -8,11 +8,14 @@ import { useStaticQuery, graphql } from "gatsby"
 
 const green = "#dbeedd"
 const white = "#ffffff"
-const bg_square_border_width = "0.1rem"
+const bg_square_border_width = "1px"
 
 const BgSquare = styled.div`
-  background: #bcdf;
-  border: ${bg_square_border_width} solid #fff;
+  background: #ddd;
+  border: ${bg_square_border_width} solid #666;
+  border-radius: 4px;
+  border-right-color: white;
+  border-bottom-color: white;
 `
 
 const SideBar = ({ location, setTheme: _setTheme }) => {
@@ -24,6 +27,9 @@ const SideBar = ({ location, setTheme: _setTheme }) => {
             ...GatsbyImageSharpFluid
           }
         }
+      }
+      allMarkdownRemark {
+        totalCount
       }
       site {
         siteMetadata {
@@ -86,25 +92,18 @@ const SideBar = ({ location, setTheme: _setTheme }) => {
           right: 0;
           bottom: 0;
           display: grid;
-          padding: 0.05rem 0 0 0.05rem;
+          padding: 0.25rem;
           grid-template-columns: repeat(auto-fill, 1rem);
           grid-template-rows: repeat(auto-fill, 1rem);
-          background-size: 1rem 1rem;
-          background-image: linear-gradient(
-              to right,
-              #fafafa ${bg_square_border_width},
-              transparent ${bg_square_border_width}
-            ),
-            linear-gradient(
-              to bottom,
-              #fafafa ${bg_square_border_width},
-              transparent ${bg_square_border_width}
-            );
+          grid-gap: 0.25rem;
+          background: #fafafa;
         `}
       >
-        {Array.from({ length: 2 }).map((_, index) => (
-          <BgSquare key={index} />
-        ))}
+        {Array.from({ length: data.allMarkdownRemark.totalCount }).map(
+          (_, index) => (
+            <BgSquare key={index} />
+          )
+        )}
       </div>
       <div
         css={css`
@@ -180,8 +179,10 @@ const SideBar = ({ location, setTheme: _setTheme }) => {
           `}
         >
           {siteMetadata.routes.map(route => (
-            <li>
-              <Link activeStyle={{ color: "black" }}>{route.name}</Link>
+            <li key={route.name}>
+              <Link activeStyle={{ color: "black" }} to={route.path}>
+                {route.name}
+              </Link>
             </li>
           ))}
         </ul>
