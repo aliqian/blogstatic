@@ -8,14 +8,11 @@ import { useStaticQuery, graphql } from "gatsby"
 
 const green = "#dbeedd"
 const white = "#ffffff"
-const bg_square_border_width = "1px"
 
 const BgSquare = styled.div`
-  background: #ddd;
-  border: ${bg_square_border_width} solid #666;
+  background: #f3f3f3;
+  border: 2px solid #fff;
   border-radius: 4px;
-  border-right-color: white;
-  border-bottom-color: white;
 `
 
 const SideBar = ({ location, setTheme: _setTheme }) => {
