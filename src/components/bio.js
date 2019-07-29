@@ -25,12 +25,7 @@ const Bio = () => {
     <div
       style={{
         display: `flex`,
-        position: "relative",
-        background: "linear-gradient(to right, #2d2d2d, #808080 60%)",
-        padding: "2px 50px 2px 70px",
-        borderRadius: "10rem",
-        display: "inline-block",
-        color: "white",
+        alignItems: "center",
       }}
     >
       <Image
@@ -39,20 +34,24 @@ const Bio = () => {
         style={{
           marginBottom: 0,
           minWidth: 56,
-          borderRadius: `100%`,
-          border: "0.2rem solid white",
-          position: "absolute",
-          top: 2,
-          left: 4,
         }}
         imgStyle={{
           borderRadius: `50%`,
         }}
       />
-      <p style={{ margin: 0, padding: 0 }}>
+      <p
+        style={{
+          margin: "0 1rem",
+          padding: 0,
+          fontSize: "1rem",
+          lineHeight: 1.4,
+        }}
+      >
         Personal blog by <strong>{author}</strong>.
         <br />
-        It's time to write something.
+        <span style={{ fontSize: "0.85rem" }}>
+          Writing from keyboard, showing to the whole world.
+        </span>
       </p>
     </div>
   )
