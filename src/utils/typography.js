@@ -1,17 +1,18 @@
 import Typography from "typography"
-import Wordpress2016 from "typography-theme-wordpress-2016"
+import theme from "typography-theme-de-young"
 
-Wordpress2016.overrideThemeStyles = () => {
+theme.overrideThemeStyles = () => {
   return {
     a: {
       boxShadow: `none`,
     },
+    body: {
+      lineHeight: 1.75,
+    },
   }
 }
 
-delete Wordpress2016.googleFonts
-
-const typography = new Typography(Wordpress2016)
+const typography = new Typography(theme)
 
 // Hot reload typography in development.
 if (process.env.NODE_ENV !== `production`) {
