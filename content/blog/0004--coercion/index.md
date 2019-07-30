@@ -1,3 +1,9 @@
+---
+title: JavaScrit Coercion
+date: "2019-07-29T03:44:40.990Z"
+description: "单词很生僻，其实就是类型转换。理论上各门语言都会有类型转换，只是 JavaScript 稍微有点玩过头，导致有些情况跟预期不太相符。"
+---
+
 大概很多人会觉得 JS 中的类型转换比较坑。由于历史原因在内的种种复杂因素，导致 JS 规范中有些不合理的枝节。对于这些“坑”，一概否定是不可取的，不如了解清楚，合理利用。
 
 为了尽量保持准确，本文会引用一些 [ECMAScript® 2019 Language Specification](http://www.ecma-international.org/ecma-262/10.0/index.html) 中的描述。
@@ -136,10 +142,10 @@ typeof ![] // => "boolean"
 
 而 y 中的感叹号 `!` 称为逻辑非运算符，用法为 `!expr` , 计算过程会作用是先对 expr 做 ToBoolean 操作，然后将结果取反。根据上文 ToBoolean 规则可知，由于 `[]` 是 Object 类型的，转成 true，取反后为 false。即 y 的值为 false，类型为 Boolean。
 
-```
+```txt
 结论：
     x 值为 [], 类型为 Object
-	y 值为 false, 类型为 Boolean
+    y 值为 false, 类型为 Boolean
 ```
 
 #### 2. 层层判断
