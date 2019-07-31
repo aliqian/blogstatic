@@ -8,7 +8,10 @@ theme.overrideThemeStyles = () => {
     },
     body: {
       lineHeight: 1.75,
+      fontFamily: "Arial, Helvetica, sans-serif",
+      fontSize: "0.85rem",
     },
+    table: { fontSize: "0.85rem" },
   }
 }
 
