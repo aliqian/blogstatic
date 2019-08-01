@@ -154,11 +154,11 @@ typeof ![] // => "boolean"
 /*1*/ [] == ![]
 /*2*/ [] == false
 /*3*/ [] == ToNumber(false) // 步骤 7
-/*4*/ [] == 0 // 参考 ToNumber 操作
+/*4*/ [] == 0 // 参考 ToNumber 说明
 /*5*/ ToPrimitive([]) == 0 // 步骤 9
 /*6*/ '' == 0 // 参考下方解释
 /*7*/ ToNumber('') == 0 // 步骤 5
-/*8*/ 0 == 0 // 参考 ToNumber 操作
+/*8*/ 0 == 0 // 参考 ToNumber 说明
 /*9*/ true
 ```
 
