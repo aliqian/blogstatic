@@ -9,11 +9,12 @@ description: "The TypeError object represents an error when a value is not of th
 In general, a TypeError will be thrown when a value is not and can't be converted to the expected type.
 
 ```javascript
-undefined() // TypeError: undefined is not a function
+0() // TypeError: 0 is not a function
 { toString: null } + 1 // TypeError: Cannot convert object to primitive value
 null.x // TypeError: Cannot read property 'x' of null
 let Car = (name) => { this.name = name }
 new Car() // TypeError: Car is not a constructor
+for(let v of {}) { } // TypeError: {} is not iterable
 ```
 
 ## How to create a ReferenceError
