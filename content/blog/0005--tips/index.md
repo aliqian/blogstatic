@@ -32,3 +32,22 @@ I found this one online which I think is pretty accurate:
 
 Now I have to understand what is lexical scope. Basically it's the scope where the function is declared.
 
+#### 4. `onclick` attribute on HTML tags
+
+```html
+<button onclick="console.log(event); console.log(this); console.log(this.onclick)">Click Me</button>
+```
+Click this button and check the console:
+```
+# The value of onclick will be executed as some function's body.
+# The function receives an argument called "event". It's the event object.
+> MouseEvent {isTrusted: true, screenX: 218, screenY: 415, clientX: 56, clientY: 139, …}
+
+# "this" is bond to the clicked element
+> <button onclick="console.log(event); console.log(this); console.log(this.onclick)">Click Me</button>
+
+# This is the function
+> ƒ onclick(event) {
+  console.log(event); console.log(this); console.log(this.onclick)
+}
+```
